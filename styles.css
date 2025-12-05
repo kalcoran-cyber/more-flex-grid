@@ -1,5 +1,5 @@
 /*
-    Name: 
+    Name: Kyra Alcoran
 */
 
 :root{
@@ -23,8 +23,7 @@
     --wht: #FDFEFF;
 
     /* Font Stack */
-    /* 
-        regular weight: 400
+    /* regular weight: 400
         semi-bold: 600
         extra-bold: 800
     */
@@ -73,7 +72,11 @@ header{
     background-position: right;
     background-size: contain;
     /* Styles were added here to arrange the content, I used flexbox */
-    /* TO DO */
+    /* TO DO: Use Flexbox to stack items and align them left */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 /* For All Headings */
@@ -136,7 +139,10 @@ nav ul{
     list-style-type: none;
     padding: 0;
     /* Styles were added here to arrange the content, I used flexbox */
-    /* TO DO */
+    /* TO DO: Use Flexbox to align nav items horizontally and centered */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav a{
@@ -164,7 +170,9 @@ nav a span{
     display: block;
     position: relative;
     /* Styles were added here to arrange the content, I used top and z-index for this */
-    /* TO DO */
+    /* TO DO: Position the text over the SVG */
+    top: -140px; /* Adjust based on icon size */
+    z-index: 10;
 }
 
 nav a:focus{
@@ -223,17 +231,24 @@ p{
     background-color: var(--wht);
     padding: 96px 32px;
     /* Styles were added here to arrange the content, I used grid */
-    /* TO DO */
+    /* TO DO: Make this a grid container with columns that auto-fit the content, 3 minimum columns, and a 48px gap */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 48px;
 }
 
 #plants h3, #plants > p{
     /* Styles were added here to arrange the content, these are grid children styles */
-    /* TO DO */
+    /* TO DO: Make these elements span all columns */
+    grid-column: 1 / -1;
 }
 
 #plants section{
     /* Styles were added here to arrange the content, I used flexbox */
-    /* TO DO */
+    /* TO DO: Use flexbox to organize the content vertically with spacing between items */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 32px auto 0;
 }
 
@@ -243,7 +258,8 @@ p{
 
 #plants img{
     /* Styles were added here to arrange the content, I used a property for a flexbox child to change the order that the content appears on the page */
-    /* TO DO */
+    /* TO DO: Change the image order to appear last in the flex container */
+    order: 1; 
     width: 100%;
     max-width: 400px;
     height: auto;
@@ -264,13 +280,17 @@ p{
     color: var(--wht);
     padding: 64px 32px;
     /* Styles were added here to arrange the content, I used grid */
-    /* TO DO */
+    /* TO DO: Make this a grid container with two equal columns and a 48px gap */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
 }
 
 /* Contact Heading and Paragraph */
 #contact h3, #contact > p{
     /* Styles were added here to arrange the content, these are grid children styles */
-    /* TO DO */
+    /* TO DO: Make these elements span all columns */
+    grid-column: 1 / -1;
 }
 
 /* Contact text color */
@@ -356,7 +376,10 @@ th:nth-of-type(even), td:nth-of-type(even){
 /* Social Media List */
 #social ul{
     /* Styles were added here to arrange the content, I used grid */
-    /* TO DO */
+    /* TO DO: Make this a grid container with three equal columns and a 16px gap */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
     width: fit-content;
     margin: 16px auto;
     list-style-type: none;
@@ -366,7 +389,8 @@ th:nth-of-type(even), td:nth-of-type(even){
 /* Heading for Social Media Section */
 #social h4{
     /* Styles were added here to arrange the content, these are grid children styles */
-    /* TO DO */
+    /* TO DO: Make this element span all columns */
+    grid-column: 1 / -1;
 }
 
 #social a{
@@ -405,6 +429,10 @@ th:nth-of-type(even), td:nth-of-type(even){
 form{
     width: 400px;
     margin: 0 auto;
+    /* TO DO: Use Grid to arrange the form fields */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for name/email on desktop */
+    gap: 10px;
 }
 
 /* Form Labels/Widgets */
@@ -418,6 +446,20 @@ label, input, textarea{
 label{
     margin: 12px 0 8px 0;
     font-size: 1.5rem;
+}
+
+/* Full name and email should occupy one column each */
+#full-name-label, #email-label {
+    grid-column: 1 / 2;
+}
+
+#full-name-input, #email-input {
+    grid-column: 1 / 2;
+}
+
+/* Reset to span for textarea and button */
+textarea, #feedback{
+    grid-column: 1 / -1; /* Span across both columns */
 }
 
 input, textarea{
